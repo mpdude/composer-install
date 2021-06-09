@@ -2,7 +2,13 @@
 
 /* istanbul ignore next */
 export function restoreFactory(): Function {
-  return async () => await require('cache/dist/restore.js')
+  const { runningInstance } = require('cache/dist/restore.js');
+  return async () => {
+    await runningInstance;
+    console.log("Aus die Maus!");
+  }
+  //
+  // return async () => await require('cache/dist/restore.js')
 }
 
 /* istanbul ignore next */
